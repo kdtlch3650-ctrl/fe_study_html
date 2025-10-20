@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+        border:1px solid black;
+        border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <!-- 한개 행 tr 한개열 td, td -->
+    <table> 
+        <tr>
+            <th>번호</th>
+            <th>상품명</th>
+            <th>수량</th>
+            <th>가격</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>사과</td>
+            <td>3개</td>
+            <td>200</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>바나나</td>
+            <td>7개</td>
+            <td>700</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>수박</td>
+            <td>1개</td>
+            <td>2000</td>
+        </tr>
+    </table>
+
+    <br><br>
+
+    <table> 
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>상품명</th>
+                <th>수량</th>
+                <th>가격</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>사과</td>
+                <td>3개</td>
+                <td>200</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>바나나</td>
+                <td>7개</td>
+                <td rowspan="2">700</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>수박</td>
+                <td>1개</td>
+                <!-- <td>2000</td> -->
+            </tr>
+        <tfoot>
+            <tr>
+                <td>총 금액</td>
+                <td colspan="3">6,200</td>
+            </tr>
+        </tfoot>
+        </tbody>
+    </table>
+    
+    <br><br>
+</body>
+</html>
