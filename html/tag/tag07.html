@@ -41,7 +41,7 @@
     <fieldset>
         <legend><strong>블로그 글쓰기</strong></legend>
         제목 <input type="text" value="밸류가 초깃값"><br><br>
-        내용 <textarea>콘텐츠가 있는 태그</textarea>
+        내용 <textarea readonly>콘텐츠가 있는 태그</textarea>
     </fieldset>
     
     <br><br>
@@ -55,9 +55,9 @@
         </optgroup>
     </select>
 
-    <br>
+    <br><br>
 
-    <select multiple>
+    <select multiple size="10">
         <optgroup label="김밥">
             <option>꼬마김밥</option>
             <option>야채김밥</option>
@@ -71,6 +71,39 @@
             <option>빅맥</option>
         </optgroup>
     </select>
+
+    <br><br>
+
+    <button disabled>버튼태그</button>
+    <input type="button" value="인풋버튼">
+    <input type="button" value="인풋리셋버튼">
+    <input type="button" value="인풋제출버튼">
+
+    <button type="submit">버튼태그</button>
+    <button type="button">버튼태그</button>
+    <br><br>
+    <button type="button">
+        <img src="./img/네이버.png" width="200"><br>
+        이미지가 들어간 버튼
+    </button>
+
+    <br><br>
+
+    <input type="text" maxlength="5" value="5글자 내">
+
+    일회용품 받지 않겠습니다. <input type="checkbox" checked>
+
+    <br><br>
+
+    <form>
+        <input type="text" value="아이디입력">
+        <input type="text" placeholder="아이디입력">
+        <input type="reset">
+        <input type="submit">
+        <br>
+        <button type="button">그냥버튼</button><!--submit 처럼 작동-->
+        <button type="submit">submit버튼</button>
+    </form>
 
 </body>
 </html>
