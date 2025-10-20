@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    치즈추가<input type="checkbox">
+    양배추추가<input type="checkbox">
+    패티추가<input type="checkbox">
+    <!--label 암묵적 방법-->
+    <br><br>
+    <label>치즈추가<input type="checkbox"></label>
+    <label>양배추추가<input type="checkbox"></label>
+    <label>패티추가<input type="checkbox"></label>
+    <!--
+        label 명시적 방법
+        id 속성 + for 속성
+    -->
+    <br><br>
+    <label for="cheese">치즈추가</label>
+    <input type="checkbox" id="cheese">
+
+    <label for="cabbage">양배추추가</label>
+    <input type="checkbox" id="cabbage">
+
+    <label for="patty">패티추가</label>
+    <input type="checkbox" id="patty">
+    <br><br>
+
+    <fieldset>
+        <legend><strong>족발 사이즈 선택</strong></legend>
+        <label>족발 대<input type="radio" name="size"></label>
+        <label>족발 중<input type="radio" name="size"></label>
+        <label>족발 소<input type="radio" name="size"></label>
+    </fieldset>
+
+    <br><br>
+
+    <fieldset>
+        <legend><strong>블로그 글쓰기</strong></legend>
+        제목 <input type="text" value="밸류가 초깃값"><br><br>
+        내용 <textarea>콘텐츠가 있는 태그</textarea>
+    </fieldset>
+    
+    <br><br>
+
+    <select>
+        <optgroup label="김밥">
+            <option>꼬마김밥</option>
+            <option selected>야채김밥</option>
+            <option>돈까스김밥</option>
+            <option>가기기기기기김밥</option>
+        </optgroup>
+    </select>
+
+    <br>
+
+    <select multiple>
+        <optgroup label="김밥">
+            <option>꼬마김밥</option>
+            <option>야채김밥</option>
+            <option selected>돈까스김밥</option>
+            <option>가기기기기기김밥</option>
+        </optgroup>
+        <br>
+        <optgroup label="햄버거">
+            <option>징거버거</option>
+            <option>싸이버거</option>
+            <option>빅맥</option>
+        </optgroup>
+    </select>
+
+</body>
+</html>
