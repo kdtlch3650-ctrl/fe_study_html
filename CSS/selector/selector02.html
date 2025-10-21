@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selector02</title>
+
+    <style>
+
+        /* 그룹 선택자 */
+        /* p, strong{color: red;} */
+        /* strong{color: red;} */
+
+        /* 자식 선택자 */
+        /* .top-div > p { color : blue; } */
+
+        /* 하위 선택자 */
+        /* .top-div p { color : green; }
+        .top-div span{ color :darkmagenta}
+
+        span{ color :aqua} */
+
+        /* 인접 형제 선택자 */
+        /* p + span { color:brown } */
+        
+        /* 일반형제 선택자 */
+        /* p ~ span {color: darkblue;} */
+
+        /* 가상요소 선택자 */
+        /* #vr-p::before{ 
+            content: "***";
+            color: chocolate;}
+        #vr-p::after{
+            content: "%%%";
+            color: darkred;
+        } */
+
+        /* 가상 클래스 선택자 */
+        /* a:link { color: aqua;}
+        a:visited{color: chocolate;}
+
+        a:hover {color: brown;}
+        a:active { color: forestgreen;}
+
+        input:focus { color: red;}
+        input:disabled{color: darkblue;} */
+
+        .chk:checked + span { color: brown; }
+        .chk:checked + label { color: green; }
+
+    </style>
+</head>
+<body>
+    <div class="top-div">
+        <p>p1</p>
+        <p>p2</p>
+        <span>span1</span>
+        <span>span2</span>
+
+        <div>
+            <p>p3</p>
+            <p id="vr-p">p4</p>
+            <strong>strong</strong>
+            <span>span3</span>
+        </div>
+
+        <div>
+            <strong>strong2</strong>
+            <span>span4</span>
+        </div>
+
+    </div>
+
+    <p>p5</p>
+
+    <a href="https://www.samsungsvc.co.kr/">삼성서비스</a>
+    <a href="https://www.lge.co.kr/">LG전자</a>
+    <a href="https://www.naver.com">네이버</a>
+
+    <br><br>
+
+    <input type="text" value="input1 value"> <br>
+    <input type="text" value="input1 value" disabled> <br>
+
+    <br>
+
+    <input type="checkbox" class="chk">
+    <span>출근</span><br>
+    <input type="checkbox" class="chk">
+    <span>퇴근</span><br>
+
+    <input type="checkbox" class="chk" id="retire"><label for="retire">조퇴</label><br>
+    <label>
+        <input type="checkbox" class="chk"><span>조퇴</span>
+    </label><br>
+</body>
+</html>
