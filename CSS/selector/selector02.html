@@ -8,42 +8,40 @@
     <style>
 
         /* 그룹 선택자 */
-        /* p, strong{color: red;} */
+        p, strong{color: red;}
         /* strong{color: red;} */
 
         /* 자식 선택자 */
-        /* .top-div > p { color : blue; } */
+        .top-div > p { color : blue; }
 
-        /* 하위 선택자 */
-        /* .top-div p { color : green; }
+        /* 하위 선택자 자손포함*/
+        .top-div p { color : green; }
         .top-div span{ color :darkmagenta}
 
-        span{ color :aqua} */
-
         /* 인접 형제 선택자 */
-        /* p + span { color:brown } */
+        p + span { color:brown }
         
         /* 일반형제 선택자 */
-        /* p ~ span {color: darkblue;} */
+        p ~ span {color: darkblue;}
 
         /* 가상요소 선택자 */
-        /* #vr-p::before{ 
+        #vr-p::before{ 
             content: "***";
             color: chocolate;}
         #vr-p::after{
             content: "%%%";
             color: darkred;
-        } */
+        }
 
         /* 가상 클래스 선택자 */
-        /* a:link { color: aqua;}
+        a:link { color: aqua;}
         a:visited{color: chocolate;}
 
         a:hover {color: brown;}
         a:active { color: forestgreen;}
 
         input:focus { color: red;}
-        input:disabled{color: darkblue;} */
+        input:disabled{color: darkblue;}
 
         .chk:checked + span { color: brown; }
         .chk:checked + label { color: green; }
