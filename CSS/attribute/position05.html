@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position05</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container{
+            width: 400px;
+            height: 400px;
+            position: relative;
+            margin: 50px;
+        }
+
+        .content{
+            width: 400px;
+            height: 400px;
+            background-color: green;
+        }
+
+        .cloud-filter{
+            
+            width: 400px;
+            height: 400px;
+            background-color: black;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            opacity: 0.6;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content"></div>
+        <div class="cloud-filter"></div>
+    </div>
+</body>
+</html>

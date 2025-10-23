@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position06</title>
+    <style>
+        body{
+            height: 5000px;
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container{
+            width: 400px;
+            height: 500px;
+            background-color: rgb(117, 63, 26);
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu{
+            background-color: rgb(59, 2, 2);
+            width: 300px;
+            height: 30px;
+            text-align: center;
+            position: absolute;
+            top: 10px;
+        }
+
+        .submenu{
+            background-color: white;
+            position: absolute;
+            width: 90%;
+            height: 80%;
+            top: 50px;
+
+            display: none;
+        }
+
+        .item{
+            font-size: 30px;
+            height: 50px;
+            text-align: center;
+        }
+
+        .pwhite{
+            color: white;
+        }
+
+        .container:hover .submenu{
+            display: block;
+        }
+
+        .item:hover{
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="menu" class="pwhite">Menu</div>
+        <div class="submenu">
+            <div class="item">아메리카노</div>
+            <div class="item">카페모카</div>
+            <div class="item">카페라떼</div>
+            <div class="item">에스프레소</div>
+            <div class="item">카푸치노</div>
+            <div class="item">카라멜마끼아또</div>
+        </div>
+    </div>
+</body>
+</html>
