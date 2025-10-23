@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boxmodel02</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 
+        display 속성
+        none            :표시x
+        block           :한줄 다 차지 사이즈 적용가능{width, height}, 여백 적용
+        inline          :컨텐츠 사이즈 만큼만 차지, 같은 줄 옆에 나란히 배치, 사이즈 적용 X, 여백 적용(좌우만)
+        inline-block    :자체적으로는 block 처럼 (사이즈, 여백...)
+                            외부적으로는 inline 처럼 (다른 요소와 상호작용 할때, 나란히 배치)
+         */
+
+        .box1{
+            width: 200px;
+            height: 150px;
+            border: 1px solid black;
+
+            margin: 10px;
+            padding: 10px;
+
+            display: none;
+        }
+
+        .box2{
+            width: 200px;
+            height: 150px;
+            border: 1px solid black;
+
+            margin: 10px;
+            padding: 10px;
+            
+            display: block;
+        }
+
+        .box3{
+            width: 200px;
+            height: 150px;
+            border: 1px solid black;
+
+            margin: 10px;
+            padding: 10px;
+            
+            /* display: inline; */
+            display: inline-block;
+        }
+
+        .span1{
+            display: inline;
+
+            width: 200px;
+            height: 100px;
+        }
+
+        .parent{
+            width: 200px;
+            height: 100px;
+            border: 1px solid blue;
+        }
+        
+        .child{
+            width: 100px;
+            height: 50px;
+            border: 1px solid red;
+
+            display: none;
+        }
+
+        .parent:hover .child{
+            display: block;
+        }
+        </style>
+
+</head>
+<body>
+    <!-- div 기본 block -->
+        <div class="box1">box1</div>
+        <div class="box2">box2</div>
+        <div class="box3">box3</div>
+        <span class="span1">span1</span>
+        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi alias fuga nihil. Odit omnis quod sed at, numquam nulla. Voluptatibus tempore quo accusamus labore et natus. A iusto tempore laudantium.</span>
+
+        <div class="parent">
+            부모
+            <div class="child">자식</div>
+        </div>
+    </body>
+</html>
