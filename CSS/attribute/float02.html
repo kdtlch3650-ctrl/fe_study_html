@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>float02</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box{ width: 200px; height: 200px;
+        background-color: aqua;}
+
+        .black-box{
+            border: 2px solid black;
+            display: inline-block;
+        }
+
+        .red-box{
+            background-color: red;
+            float: left;
+        }
+        .green-box{
+            background-color: green;
+            float: left;
+        }
+        .blue-box{
+            background-color: blue;
+            float: left;
+        }
+
+        .next {background-color: gray;}
+        .clear-box{clear: both;}
+
+        .container::after{
+            content : ""; /*content 없으면 작동 안함*/
+            display: block; /* content:  기본텍스트 inline -> block 변경; */
+            clear: both;
+        }
+</style>
+</head>
+<body>
+    <div class="box black-box">        
+    </div><div class="box black-box">        
+    </div><div class="box black-box"></div>
+
+    <div class="container">
+        <div class="box red-box"></div>
+        <div class="box green-box"></div>
+        <div class="box blue-box"></div>
+        <!-- <div class="clear-box"></div> -->
+    </div>
+    <!-- <div class="box"></div> -->
+    <div class="box next"></div>
+</body>
+</html>
