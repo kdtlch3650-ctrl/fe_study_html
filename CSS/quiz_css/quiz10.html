@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz8</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box1{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            border: 2px solid black;
+            /* border: 1px solid black; */
+            margin: 10px;
+            animation-direction: alternate;
+
+            animation-fill-mode: both;
+            animation-name: box-ani1;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+
+            animation-play-state: running;
+        }
+
+        p{
+            text-align: center;
+        }
+
+        .stop {
+            position: absolute;
+            width: 100%;
+            margin: 0 auto;
+            z-index: 1;
+            padding-top: 30px;
+            color: white;
+            font-size: 30px;
+        }
+
+        @keyframes box-ani1 {
+            0%{
+                background-color: blue;
+                transform: translate(0px) rotate(0deg);
+                
+            }
+            50%{
+                background: orange;
+                transform: translate(200px) rotate(180deg);
+            }
+            100%{
+                background-color: pink;
+                transform: translate(400px) rotate(360deg);
+            }
+        }
+        
+        .box:hover{
+
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+    <div class="stop"><p>STOP!</p></div>
+    <div class="box1 box"></div>
+</body>
+</html>
