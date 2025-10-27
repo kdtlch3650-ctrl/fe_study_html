@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz8</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box1{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            /* border: 1px solid black; */
+            margin: 10px;
+            animation-direction: alternate;
+
+            animation-fill-mode: both;
+            animation-name: box-ani1;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+
+            animation-play-state: running;
+        }
+
+        @keyframes box-ani1 {
+            0%{
+                background-color: blue;
+                right: 0px;
+                
+            }
+            50%{
+                background: orange;
+                right: -100px;
+            }
+            100%{
+                background-color: pink;
+                right: -200px;
+            }
+        }
+
+        .box2{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            /* border: 1px solid black; */
+            margin: 10px;
+
+            animation-fill-mode: both;
+            animation-name: box-ani2;
+            animation-duration: 3s;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+
+            animation-play-state: running;
+        }
+
+        @keyframes box-ani2 {
+            0%{
+                background-color: blue;
+                bottom: 0px;
+                
+            }
+            50%{
+                background: orange;
+                bottom: -100px;
+            }
+            100%{
+                background-color: pink;
+                bottom: -200px;
+            }
+        }
+
+        .box3{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            /* border: 1px solid black; */
+            margin: 10px;
+
+            animation-fill-mode: both;
+            animation-name: box-ani3;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+
+            animation-play-state: running;
+            animation-direction: alternate;
+        }
+
+        @keyframes box-ani3 {
+            0%{
+                background-color: blue;
+                right: 0px;
+                bottom: 0px;
+                
+            }
+            50%{
+                background: orange;
+                right: -100px;
+                bottom: -100px;
+            }
+            100%{
+                background-color: pink;
+                right: -200px;
+                bottom: -200px;
+            }
+        }
+        
+        .box:hover{
+
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1 box"></div>
+    <div class="box2 box"></div>
+    <div class="box3 box"></div>
+</body>
+</html>
