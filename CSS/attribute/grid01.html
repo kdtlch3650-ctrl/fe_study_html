@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid01</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .item{
+            border: 1px solid black;
+        }
+
+        .container{
+            display: grid;
+            grid-template-rows: 80px 80px;
+            grid-template-columns: 90px 90px 90px;
+
+            row-gap: 5px;
+            column-gap: 10px;
+        }
+        
+        .row-merge{
+            /* grid-row-start: 1;
+            grid-row-end: 3; */
+            /* 1에서부터 2칸 */
+            grid-row: 1/span2;
+
+            
+        }
+
+        .col-merge{
+            /* grid-column-start: 2;
+            grid-column-end: 4; */
+            /* 2~4라인 */
+            grid-column: 2/4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item row-merge"></div>
+        <div class="item col-merge"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+</body>
+</html>
