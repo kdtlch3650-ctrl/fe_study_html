@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz11</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container{            
+            margin: 0 auto;
+            width: 800px;
+            display: grid;
+            grid-template-columns: repeat(8, 100px);
+            grid-template-rows: repeat(18,30px);
+        }
+
+        .box{
+            border: 2px solid black;
+        }
+
+        .box-merge1{            
+            grid-row: span 3;
+            grid-column: span 4;
+        }
+        .box-merge3{            
+            grid-row: span 3;
+            grid-column: span 8;
+        }
+        .box-merge4{            
+            grid-row: span 8;
+            grid-column: span 3;
+        }
+        .box-merge5{            
+            grid-row: span 4;
+            grid-column: span 5;
+        } 
+        .box-merge7{            
+            grid-row: span 4;
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box box-merge1"></div>
+        <div class="box box-merge1"></div>
+        <div class="box box-merge3"></div>
+        <div class="box box-merge4"></div>
+        <div class="box box-merge5"></div>
+        <div class="box box-merge5"></div>
+        <div class="box box-merge7"></div>
+        <div class="box box-merge7"></div>
+        <div class="box box-merge7"></div>
+        <div class="box box-merge7"></div>
+    </div>
+</body>
+</html>

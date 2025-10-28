@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz12_reviwe</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .align-center{            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .color-white{
+            color: white;
+        }
+
+        .container{
+            width: 700px;
+            height: 500px;
+
+            margin: 0 auto;
+            margin-top: 50px;
+
+            border: 1px solid black;
+        }
+
+        .header{
+            display: flex;
+            height: 100px;
+            justify-content: space-between;
+        }
+
+        .main-menu{
+            background-color: red;
+            width: 210px;
+        }
+
+        .mypage{
+            background-color: red;
+            width: 140px;
+        }
+
+        .main{
+            width: 700px;
+            height: 300px;
+            display: flex;
+        }
+
+        .main-1{
+            background-color: yellow;
+            width: 70%;
+            height: 100%;
+        }
+
+        .main-2{
+            background-color: green;
+            width: 30%;
+            height: 100%;
+        }
+
+        .footer{
+            background-color: blue;
+            width: 700px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="main-menu align-center color-white">메인메뉴</div>
+            <div class="mypage align-center color-white">마이페이지</div>
+        </div>
+        <div class="main">
+            <div class="main-1"></div>
+            <div class="main-2 align-center color-white">aside</div>
+        </div>
+        <div class="footer align-center color-white">footer</div>
+    </div>
+</body>
+</html>
