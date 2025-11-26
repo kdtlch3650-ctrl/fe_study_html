@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)https://school.programmers.co.kr/learn/courses/30/lessons/120812 -->
+<html lang="ko" xml:lang="ko" xmlns="http://www.w3.org/1999/xhtml" class="" translate=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="twitter:title" property="og:title" itemprop="title name" content="코딩테스트 연습 - 최빈값 구하기">
+<meta name="og:title" property="og:title" itemprop="title name" content="코딩테스트 연습 - 최빈값 구하기">
+<meta name="twitter:description" property="og:description" itemprop="description" content="알고리즘 문제 연습 카카오톡 친구해요! 프로그래머스 교육 카카오 채널을 만들었어요. 여기를 눌러, 친구 추가를 해주세요. 신규 교육 과정 소식은 물론 다양한 이벤트 소식을 가장 먼저 알려드립니다.">
+<meta name="og:description" property="og:description" itemprop="description" content="알고리즘 문제 연습 카카오톡 친구해요! 프로그래머스 교육 카카오 채널을 만들었어요. 여기를 눌러, 친구 추가를 해주세요. 신규 교육 과정 소식은 물론 다양한 이벤트 소식을 가장 먼저 알려드립니다.">
+<meta name="twitter:image" property="og:image" itemprop="image primaryImageOfPage" content="https://image.freepik.com/free-vector/landing-page-template-for-a-website_23-2147782747.jpg">
+<meta name="og:image" property="og:image" itemprop="image primaryImageOfPage" content="https://image.freepik.com/free-vector/landing-page-template-for-a-website_23-2147782747.jpg">
+<meta name="twitter:url" property="og:url" content="https://programmers.co.kr/">
+<meta name="og:url" property="og:url" content="https://programmers.co.kr/">
+
+<title>코딩테스트 연습 - 최빈값 구하기 | 프로그래머스 스쿨</title>
+<link rel="shortcut icon" type="image/x-icon" href="https://school.programmers.co.kr/assets/icons/favicon-ec61d910396b5fc4d7418ea44281693172c34e31d437d074f9ab5470523990fb.png">
+<link rel="apple-touch-icon" type="image/png" href="https://school.programmers.co.kr/assets/icons/apple-icon-8a32ac937e12475676c7102e99d34b7f908b3d1ac048d6eed0712ad111bfdd01.png">
+<meta name="description" content="알고리즘 문제 연습 카카오톡 친구해요! 프로그래머스 교육 카카오 채널을 만들었어요. 여기를 눌러, 친구 추가를 해주세요. 신규 교육 과정 소식은 물론 다양한 이벤트 소식을 가장 먼저 알려드립니다.">
+<meta name="keywords" content="코딩 교육, 코딩, 프로그래밍, 실습, 생활코딩, 알고리즘, java, 영상/실습 강의, 추천 강의">
+<meta property="fb:app_id" content="339079816467879">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="프로그래머스 스쿨">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<meta name="image" content="https://image.freepik.com/free-vector/landing-page-template-for-a-website_23-2147782747.jpg">
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="xvvisYK02KIwGZ0asSPsKLY-LHBAV1ZeN1C4bIifX3xsFrVXM-S1UT44rf7p4Rxa07FmwHVycKhRRJrWiSnhkQ">
+<meta name="action-cable-url" content="wss://ws.programmers.co.kr:443/cable">
+<script type="text/javascript" async="" src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/js"></script><script async="" src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/clarity.js.다운로드"></script><script src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/2050250308523590" async=""></script><script async="" src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/fbevents.js.다운로드"></script><script type="text/javascript" async="" src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/bnbjbxy3m1"></script><script type="text/javascript" async="" src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/analytics.js.다운로드"></script><script type="text/javascript" async="" src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/js(1)"></script><script async="" src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/gtm.js.다운로드"></script><script type="text/javascript" charset="utf-8">
+  window.__env__ = {
+  STAGE: 'production',
+  SITE: 'programmers',
+  SENTRY_DSN: 'https://96f9fc1ff3f44acbb98a9c156338d14b@o1070092.ingest.sentry.io/6136918',
+  HACKLE_BROWSER_KEY: 'OKQUz9iLXiTPyzwOAyq44sT4uwMqfCzz',
+  HACKLE_EVENT_SERVER_INIT: true, // 핵클 초기화 코드 이전을 위한 임시 플래그 배포 후 삭제 예정
+  HERA_CLIENT_HOST: 'https://d1nuzc1w51n1es.cloudfront.net',
+  PROGRAMMERS_HOST: 'programmers.co.kr',
+  BUSINESS_HOST: 'business.programmers.co.kr',
+  SCHOOL_HOST: 'school.programmers.co.kr',
+  INSTRUCTOR_SCHOOL_HOST: 'instructor.school.programmers.co.kr',
+  CAMPUS_HOST: 'campus.programmers.co.kr',
+  PROGRAMMERS_WS_HOST: 'ws.programmers.co.kr',
+  COMMUNITY_HOST: 'community.programmers.co.kr',
+  QNA_HOST: 'qna.programmers.co.kr',
+  IS_PROGRAMMERS_APP_REQUEST: false,
+};
+
+</script>
+  <script id="__hackle-init-info" data-user-id="885503" data-internal-account="false"></script>
+<script src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/hackle_event_initializer-2decc783baaed7cdfba6b3ba315d282eaf5eb75f3565979fc7d54934bef78a4f.js.다운로드"></script>
+
+
+
+
+  <link rel="stylesheet" href="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/library-05704bb25291ce17972d22267cf938317aa9808756330022d3fa676cf1e0ced1.css" media="all" debug="false">
+  <link rel="stylesheet" href="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/application-f240aaaeada99a3772c5277c835697cdfaff6a5d51cc059bdc9e9a14b81f4407.css" media="all">
+  <link rel="stylesheet" href="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/school-7277c1ff5f66ff6ef031e0bf62a5c4e3df15b5903882560b1642ad4c793b9f2b.css" media="all">
+
+<meta name="google-site-verification" content="Z9qZz155KQLu77llc1wF4LlccJE88dymkeGyw1I62JY">
+
+
+
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+     user_id: '885503',
+    });
+  </script>
+<!-- Google Tag Manager -->
+<script>(function (w, d, s, l, i) {
+  w[l] = w[l] || [];
+  w[l].push({
+    'gtm.start':
+      new Date().getTime(), event: 'gtm.js'
+  });
+  var f = d.getElementsByTagName(s)[0],
+    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+  j.async = true;
+  j.src =
+    'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+  f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-NT8HLJD');</script>
+<!-- End Google Tag Manager -->
+
+
+<script type="text/javascript" async="" src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/synchronizer.js.다운로드"></script><link rel="stylesheet" type="text/css" href="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/ebdb5e2c15a97b4449f0.css"><link rel="stylesheet" type="text/css" href="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/6e1fc9a5c72670e22275.css"><link rel="stylesheet" type="text/css" href="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/6b8c31461c042fc88087.css"><link rel="stylesheet" type="text/css" href="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/a2af0437dd80c770207b.css"><style data-styled="active" data-styled-version="5.3.6"></style></head>
+<body class="learn-lessons learn-lessons-show" data-ns="Learn" data-controller="lessons" data-action="show" data-defaultlocale="ko" data-locale="ko" data-signed-in="true" data-hackle-event-bounded="true">
+
+
+
+  <div class="navbar navbar-dark navbar-expand-lg navbar-application navbar-breadcrumb">
+    <a class="navbar-brand" href="https://school.programmers.co.kr/">
+      <img alt="logo" width="24" src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/bi-symbol-light-4a9edc980025418d6883d7519df4acf2b6c65f068508931dff0881d1c5ad4721.png">
+</a>  <ol class="breadcrumb"><li><a href="https://school.programmers.co.kr/learn/challenges">코딩테스트 연습</a></li><li><a href="https://school.programmers.co.kr/learn/challenges/beginner">코딩테스트 입문</a></li><li class="active">최빈값 구하기</li></ol>
+
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item"><a onclick="Learn.lessons.challengeable.startTour(true)" class="nav-link" id="help" href="https://school.programmers.co.kr/learn/courses/30/lessons/120812#">도움말</a></li>
+        <li class="nav-item"><a class="nav-link" data-remote="true" href="https://school.programmers.co.kr/compile_options">컴파일 옵션</a></li>
+      </ul>
+    </div>
+</div>
+
+
+
+<div class="main theme-dark">
+  
+<script src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/7ce1cc7fdaa403fa8cb8.js.다운로드" defer="defer"></script>
+
+
+  <div class="lesson-content" data-course-slug="코딩테스트-연습" data-course-id="30" data-lesson-id="120812" data-lesson-type="Challenge" data-lesson-title="최빈값 구하기" data-lesson-ai-commentable="false" data-challenge-level="0" data-challenge-category="algorithm" data-course-category="open_challenge" data-next-lesson-id="">
+
+    
+
+<div class="challenge-nav nav nav-tabs nav-tabs-dark task-tab" id="tab" role="tablist">
+  <div class="challenge-nav-left-menu">
+      <div class="algorithm-bookmarks" data-bookmarked="false">
+        <div id="challenge-bookmark-delete" class="icon-bookmark challenge-bookmark hidden disabled" data-user-signed-in="true" data-lesson-id="120812" data-bookmarked="true" data-toggle="tooltip" data-placement="top" data-original-title="즐겨찾기 해제" data-hackle-value="{&quot;key&quot;:&quot;open_challenge_lesson_bookmark_clicked&quot;,&quot;properties&quot;:{&quot;course_id&quot;:30,&quot;lesson_id&quot;:120812,&quot;bookmarked&quot;:false}}">
+          <svg class="ic-bookmark ic-24"><use xlink:href="/assets/svg-defs-66fb9296495544b5cfe85188769b6f054a402c2cade403f425642f9922ca755e.svg#ic-bookmark"></use></svg>
+          <div class="hover-bg"></div>
+        </div>
+        <div id="challenge-bookmark" class="icon-bookmark challenge-bookmark" data-user-signed-in="true" data-lesson-id="120812" data-bookmarked="false" data-toggle="tooltip" data-placement="top" data-original-title="즐겨찾기 추가" data-hackle-value="{&quot;key&quot;:&quot;open_challenge_lesson_bookmark_clicked&quot;,&quot;properties&quot;:{&quot;course_id&quot;:30,&quot;lesson_id&quot;:120812,&quot;bookmarked&quot;:true}}">
+          <svg class="ic-bookmark-border ic-24 icon-bookmark"><use xlink:href="/assets/svg-defs-66fb9296495544b5cfe85188769b6f054a402c2cade403f425642f9922ca755e.svg#ic-bookmark-border"></use></svg>
+          <div class="hover-bg"></div>
+        </div>
+      </div>
+
+      <div class="challenge-item-list open-challenge nav-item-list nav nav-tabs nav-tabs-dark task-tab">
+        <div class="nav-item algorithm-nav-link algorithm-title active" data-toggle="tab" aria-expanded="true" role="tab" href="#tour2">
+          <span class="challenge-title">최빈값 구하기</span>
+        </div>
+        <div class="nav-item submission-history-title" href="#submissionHistory" data-toggle="tab" aria-expanded="true" role="tab" data-hackle-value="{&quot;key&quot;:&quot;open_challenge_lesson_submission_history_tab_clicked&quot;,&quot;properties&quot;:{&quot;course_id&quot;:30,&quot;lesson_id&quot;:120812}}">
+          <span>
+            제출 내역
+          </span>
+        </div>
+      </div>
+  </div>
+
+  <div class="challenge-nav-right-menu">
+    
+<div class="challenge-settings nav-item">
+    <div class="btn-group-theme btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-sm btn-outline-dark active">
+          <input type="radio" name="themes" autocomplete="off" checked="" data-toggle="button" data-theme="dark">dark
+        </label>
+        <label class="btn btn-sm btn-outline-dark">
+          <input type="radio" name="themes" autocomplete="off" data-toggle="button" data-theme="light">light
+        </label>
+    </div>
+
+      <div data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="코드 에디터의 단축키를 설정하는 옵션입니다. 선호하는 에디터 옵션이 없다면 sublime을 선택해주세요." data-original-title="" title="">
+        <div class="btn-group-keymap btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-sm btn-outline-dark active">
+              <input type="radio" name="keymaps" autocomplete="off" checked="" data-keymap="sublime">sublime
+            </label>
+            <label class="btn btn-sm btn-outline-dark">
+              <input type="radio" name="keymaps" autocomplete="off" data-keymap="vim">vim
+            </label>
+            <label class="btn btn-sm btn-outline-dark">
+              <input type="radio" name="keymaps" autocomplete="off" data-keymap="emacs">emacs
+            </label>
+        </div>
+      </div>
+
+    <div class="dropdown-language" id="tour7">
+      <button class="btn btn-sm btn-dark dropdown-toggle" type="button" data-toggle="dropdown">
+        Java
+      </button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="https://school.programmers.co.kr/learn/courses/30/lessons/120812?language=c">C</a>
+            <a class="dropdown-item" href="https://school.programmers.co.kr/learn/courses/30/lessons/120812?language=cpp">C++</a>
+            <a class="dropdown-item" href="https://school.programmers.co.kr/learn/courses/30/lessons/120812?language=csharp">C#</a>
+            <a class="dropdown-item" href="https://school.programmers.co.kr/learn/courses/30/lessons/120812?language=go">Go</a>
+            <a class="dropdown-item" href="https://school.programmers.co.kr/learn/courses/30/lessons/120812?language=java">Java</a>
+            <a class="dropdown-item" href="https://school.programmers.co.kr/learn/courses/30/lessons/120812?language=javascript">JavaScript</a>
+            <a class="dropdown-item" href="https://school.programmers.co.kr/learn/courses/30/lessons/120812?language=kotlin">Kotlin</a>
+            <a class="dropdown-item" href="https://school.programmers.co.kr/learn/courses/30/lessons/120812?language=python3">Python3</a>
+            <a class="dropdown-item" href="https://school.programmers.co.kr/learn/courses/30/lessons/120812?language=ruby">Ruby</a>
+            <a class="dropdown-item" href="https://school.programmers.co.kr/learn/courses/30/lessons/120812?language=scala">Scala</a>
+            <a class="dropdown-item" href="https://school.programmers.co.kr/learn/courses/30/lessons/120812?language=swift">Swift</a>
+        </div>
+    </div>
+
+
+  <div class="connection-box connection-status js-connection-status-alert connected">
+    <svg class="ic-18"><use xlink:href="/assets/svg-defs-66fb9296495544b5cfe85188769b6f054a402c2cade403f425642f9922ca755e.svg#ic-power-off"></use></svg>
+    <span class="connection-status-txt">네트워크 연결 끊김</span>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<div class="challenge-content lesson-algorithm-main-section " data-challengeable-id="14652" data-challengeable-type="algorithm" data-algorithm-type="standard" data-language="java" data-user-id="885503" data-interface-type="function" data-lesson-comment-activation-score="30" data-is-lesson="true">
+    <div></div>
+    
+
+<div class="main-section tab-content">
+  <div class="guide-section" style="width: calc(40% - 12px);">
+    <div class="tab-pane fade active show" id="tour2">
+      <div class="guide-section-description">
+        <h6 class="guide-section-title">문제 설명</h6>
+        <div class="markdown solarized-dark"><p>최빈값은 주어진 값 중에서 가장 자주 나오는 값을 의미합니다. 정수 배열 <code>array</code>가 매개변수로 주어질 때, 최빈값을 return 하도록 solution 함수를 완성해보세요. 최빈값이 여러 개면 -1을 return 합니다.</p>
+
+<hr>
+
+<h5>제한사항</h5>
+
+<ul>
+<li>0 &lt; <code>array</code>의 길이 &lt; 100</li>
+<li>0&nbsp;≤&nbsp;<code>array</code>의 원소 &lt; 1000</li>
+</ul>
+
+<hr>
+
+<h5>입출력 예</h5>
+<table class="table">
+        <thead><tr>
+<th>array</th>
+<th>result</th>
+</tr>
+</thead>
+        <tbody><tr>
+<td>[1, 2, 3, 3, 3, 4]</td>
+<td>3</td>
+</tr>
+<tr>
+<td>[1, 1, 2, 2]</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>[1]</td>
+<td>1</td>
+</tr>
+</tbody>
+      </table>
+<hr>
+
+<h5>입출력 예 설명</h5>
+
+<p>입출력 예 #1</p>
+
+<ul>
+<li>[1, 2, 3, 3, 3, 4]에서 1은 1개 2는 1개 3은 3개 4는 1개로 최빈값은 3입니다.</li>
+</ul>
+
+<p>입출력 예 #2</p>
+
+<ul>
+<li>[1, 1, 2, 2]에서 1은 2개 2는 2개로 최빈값이 1, 2입니다. 최빈값이 여러 개이므로 -1을 return 합니다.</li>
+</ul>
+
+<p>입출력 예 #3</p>
+
+<ul>
+<li>[1]에는 1만 있으므로 최빈값은 1입니다.</li>
+</ul>
+
+<hr>
+
+<p>※ 공지 - 2022년 10월 17일 제한 사항 및 테스트케이스가 수정되었습니다.</p>
+</div>
+      </div>
+    </div>
+
+
+      <div class="submission-history-list-section tab-pane fade" id="submissionHistory">
+        <div class="submission-history-wrapper">
+
+
+  <div data-challengeable-submission-history-component="submission-history" data-user-id="885503" data-lesson-id="120812" data-current-theme="dark" data-webapp="true" style="width: 100%; height: 100%;"><div class="SubmissionHistorystyle__Container-sc-topbuc-0 iVNFti theme-dark"><div class="SubmissionHistorystyle__ListLayout-sc-topbuc-1 khRHCb"><div class="Headerstyle__Container-sc-xey78k-0 kbsNBj"><div class="Headerstyle__TotalSubmissionCount-sc-xey78k-1 hzNbuo">5개의 제출</div><div class="Headerstyle__RefreshButton-sc-xey78k-4 gaLZyr theme-dark" data-hackle-value="{&quot;key&quot;:&quot;open_challenge_lesson_submission_history_refresh_clicked&quot;,&quot;properties&quot;:{&quot;total_entries&quot;:5,&quot;lesson_id&quot;:120812}}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="Headerstyle__RefreshIcon-sc-xey78k-2 jbYPfE"><path fill-rule="evenodd" clip-rule="evenodd" d="M19 8L15 12H18C18 15.31 15.31 18 12 18C10.99 18 10.03 17.75 9.2 17.3L7.74 18.76C8.97 19.54 10.43 20 12 20C16.42 20 20 16.42 20 12H23L19 8ZM6 12C6 8.69 8.69 6 12 6C13.01 6 13.97 6.25 14.8 6.7L16.26 5.24C15.03 4.46 13.57 4 12 4C7.58 4 4 7.58 4 12H1L5 16L9 12H6Z" fill="black"></path></svg><span class="Headerstyle__RefreshText-sc-xey78k-3 cNPYye">새로고침</span></div></div><div class="SubmissionListstyle__ListLayout-sc-dysuo0-2 eaCzRc"><div class="SubmissionListstyle__ListHeader-sc-dysuo0-9 eOLKHZ theme-dark"><div class="SubmissionListstyle__ListRow-sc-dysuo0-8 kWkWMs"><div class="SubmissionListstyle__ListItemColumnWrapper-sc-dysuo0-5 jbeaNc"><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"></div><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt">제출일시</div><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt">언어</div><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt">채점 내역</div></div></div></div><div class="SubmissionListstyle__ListBody-sc-dysuo0-10 kPkVNv theme-dark"><div data-hackle-value="{&quot;key&quot;:&quot;open_challenge_lesson_submission_history_list_item_toggle_clicked&quot;,&quot;properties&quot;:{&quot;lesson_id&quot;:120812,&quot;created_at&quot;:&quot;2025-11-10T12:25:11.787+09:00&quot;,&quot;language&quot;:&quot;java&quot;,&quot;score&quot;:87.5,&quot;is_perfect_score&quot;:false}}" class="SubmissionListstyle__ListRow-sc-dysuo0-8 kWkWMs"><div class="SubmissionListstyle__ListItemColumnWrapper-sc-dysuo0-5 jbeaNc theme-dark"><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="SubmissionListstyle__ToggleIcon-sc-dysuo0-4 bYEfRJ"><path d="M20.735 11.1653C21.334 11.5606 21.334 12.4394 20.735 12.8347L7.80074 21.3691C7.13589 21.8078 6.25 21.3309 6.25 20.5344L6.25 3.4656C6.25 2.66905 7.13589 2.19223 7.80074 2.63092L20.735 11.1653Z" fill="black"></path></svg></div><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><span class="SubmissionListstyle__WhiteText-sc-dysuo0-3 kJJFrt theme-dark">2025-11-10 12:25:11</span></div><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><span class="SubmissionListstyle__WhiteText-sc-dysuo0-3 kJJFrt theme-dark">Java</span></div><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><div class="SubmissionListstyle__ScoreInfo-sc-dysuo0-14 CLVpA theme-dark"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="SubmissionListstyle__InCorrectIcon-sc-dysuo0-13 jvkDCx"><g clip-path="url(#clip0_697_1060)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 0C3.129 0 0 3.129 0 7C0 10.871 3.129 14 7 14C10.871 14 14 10.871 14 7C14 3.129 10.871 0 7 0ZM10.5 9.231L9.231 10.5L7 8.269L4.769 10.5L3.5 9.231L5.731 7L3.5 4.769L4.769 3.5L7 5.731L9.231 3.5L10.5 4.769L8.269 7L10.5 9.231Z" fill="black"></path></g><defs><clippath id="clip0_697_1060"><rect width="14" height="14" fill="white"></rect></clippath></defs></svg><span class="SubmissionListstyle__ScoreText-sc-dysuo0-11 ghcIpf incorrect">오답</span></div><div class="SubmissionListstyle__ScoreNumber-sc-dysuo0-15 ivpXjX theme-dark">87.5 / 100</div></div></div></div><div data-hackle-value="{&quot;key&quot;:&quot;open_challenge_lesson_submission_history_list_item_toggle_clicked&quot;,&quot;properties&quot;:{&quot;lesson_id&quot;:120812,&quot;created_at&quot;:&quot;2025-11-10T12:19:11.085+09:00&quot;,&quot;language&quot;:&quot;java&quot;,&quot;score&quot;:81.25,&quot;is_perfect_score&quot;:false}}" class="SubmissionListstyle__ListRow-sc-dysuo0-8 kWkWMs"><div class="SubmissionListstyle__ListItemColumnWrapper-sc-dysuo0-5 jbeaNc theme-dark"><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="SubmissionListstyle__ToggleIcon-sc-dysuo0-4 bYEfRJ"><path d="M20.735 11.1653C21.334 11.5606 21.334 12.4394 20.735 12.8347L7.80074 21.3691C7.13589 21.8078 6.25 21.3309 6.25 20.5344L6.25 3.4656C6.25 2.66905 7.13589 2.19223 7.80074 2.63092L20.735 11.1653Z" fill="black"></path></svg></div><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><span class="SubmissionListstyle__WhiteText-sc-dysuo0-3 kJJFrt theme-dark">2025-11-10 12:19:11</span></div><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><span class="SubmissionListstyle__WhiteText-sc-dysuo0-3 kJJFrt theme-dark">Java</span></div><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><div class="SubmissionListstyle__ScoreInfo-sc-dysuo0-14 CLVpA theme-dark"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="SubmissionListstyle__InCorrectIcon-sc-dysuo0-13 jvkDCx"><g clip-path="url(#clip0_697_1060)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 0C3.129 0 0 3.129 0 7C0 10.871 3.129 14 7 14C10.871 14 14 10.871 14 7C14 3.129 10.871 0 7 0ZM10.5 9.231L9.231 10.5L7 8.269L4.769 10.5L3.5 9.231L5.731 7L3.5 4.769L4.769 3.5L7 5.731L9.231 3.5L10.5 4.769L8.269 7L10.5 9.231Z" fill="black"></path></g><defs><clippath id="clip0_697_1060"><rect width="14" height="14" fill="white"></rect></clippath></defs></svg><span class="SubmissionListstyle__ScoreText-sc-dysuo0-11 ghcIpf incorrect">오답</span></div><div class="SubmissionListstyle__ScoreNumber-sc-dysuo0-15 ivpXjX theme-dark">81.3 / 100</div></div></div></div><div data-hackle-value="{&quot;key&quot;:&quot;open_challenge_lesson_submission_history_list_item_toggle_clicked&quot;,&quot;properties&quot;:{&quot;lesson_id&quot;:120812,&quot;created_at&quot;:&quot;2025-11-10T11:16:18.751+09:00&quot;,&quot;language&quot;:&quot;java&quot;,&quot;score&quot;:43.75,&quot;is_perfect_score&quot;:false}}" class="SubmissionListstyle__ListRow-sc-dysuo0-8 kWkWMs"><div class="SubmissionListstyle__ListItemColumnWrapper-sc-dysuo0-5 jbeaNc theme-dark"><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="SubmissionListstyle__ToggleIcon-sc-dysuo0-4 bYEfRJ"><path d="M20.735 11.1653C21.334 11.5606 21.334 12.4394 20.735 12.8347L7.80074 21.3691C7.13589 21.8078 6.25 21.3309 6.25 20.5344L6.25 3.4656C6.25 2.66905 7.13589 2.19223 7.80074 2.63092L20.735 11.1653Z" fill="black"></path></svg></div><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><span class="SubmissionListstyle__WhiteText-sc-dysuo0-3 kJJFrt theme-dark">2025-11-10 11:16:18</span></div><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><span class="SubmissionListstyle__WhiteText-sc-dysuo0-3 kJJFrt theme-dark">Java</span></div><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><div class="SubmissionListstyle__ScoreInfo-sc-dysuo0-14 CLVpA theme-dark"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="SubmissionListstyle__InCorrectIcon-sc-dysuo0-13 jvkDCx"><g clip-path="url(#clip0_697_1060)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 0C3.129 0 0 3.129 0 7C0 10.871 3.129 14 7 14C10.871 14 14 10.871 14 7C14 3.129 10.871 0 7 0ZM10.5 9.231L9.231 10.5L7 8.269L4.769 10.5L3.5 9.231L5.731 7L3.5 4.769L4.769 3.5L7 5.731L9.231 3.5L10.5 4.769L8.269 7L10.5 9.231Z" fill="black"></path></g><defs><clippath id="clip0_697_1060"><rect width="14" height="14" fill="white"></rect></clippath></defs></svg><span class="SubmissionListstyle__ScoreText-sc-dysuo0-11 ghcIpf incorrect">오답</span></div><div class="SubmissionListstyle__ScoreNumber-sc-dysuo0-15 ivpXjX theme-dark">43.8 / 100</div></div></div></div><div data-hackle-value="{&quot;key&quot;:&quot;open_challenge_lesson_submission_history_list_item_toggle_clicked&quot;,&quot;properties&quot;:{&quot;lesson_id&quot;:120812,&quot;created_at&quot;:&quot;2025-11-10T11:14:24.955+09:00&quot;,&quot;language&quot;:&quot;java&quot;,&quot;score&quot;:50,&quot;is_perfect_score&quot;:false}}" class="SubmissionListstyle__ListRow-sc-dysuo0-8 kWkWMs"><div class="SubmissionListstyle__ListItemColumnWrapper-sc-dysuo0-5 jbeaNc theme-dark"><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="SubmissionListstyle__ToggleIcon-sc-dysuo0-4 bYEfRJ"><path d="M20.735 11.1653C21.334 11.5606 21.334 12.4394 20.735 12.8347L7.80074 21.3691C7.13589 21.8078 6.25 21.3309 6.25 20.5344L6.25 3.4656C6.25 2.66905 7.13589 2.19223 7.80074 2.63092L20.735 11.1653Z" fill="black"></path></svg></div><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><span class="SubmissionListstyle__WhiteText-sc-dysuo0-3 kJJFrt theme-dark">2025-11-10 11:14:24</span></div><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><span class="SubmissionListstyle__WhiteText-sc-dysuo0-3 kJJFrt theme-dark">Java</span></div><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><div class="SubmissionListstyle__ScoreInfo-sc-dysuo0-14 CLVpA theme-dark"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="SubmissionListstyle__InCorrectIcon-sc-dysuo0-13 jvkDCx"><g clip-path="url(#clip0_697_1060)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 0C3.129 0 0 3.129 0 7C0 10.871 3.129 14 7 14C10.871 14 14 10.871 14 7C14 3.129 10.871 0 7 0ZM10.5 9.231L9.231 10.5L7 8.269L4.769 10.5L3.5 9.231L5.731 7L3.5 4.769L4.769 3.5L7 5.731L9.231 3.5L10.5 4.769L8.269 7L10.5 9.231Z" fill="black"></path></g><defs><clippath id="clip0_697_1060"><rect width="14" height="14" fill="white"></rect></clippath></defs></svg><span class="SubmissionListstyle__ScoreText-sc-dysuo0-11 ghcIpf incorrect">오답</span></div><div class="SubmissionListstyle__ScoreNumber-sc-dysuo0-15 ivpXjX theme-dark">50 / 100</div></div></div></div><div data-hackle-value="{&quot;key&quot;:&quot;open_challenge_lesson_submission_history_list_item_toggle_clicked&quot;,&quot;properties&quot;:{&quot;lesson_id&quot;:120812,&quot;created_at&quot;:&quot;2025-11-10T11:13:04.741+09:00&quot;,&quot;language&quot;:&quot;java&quot;,&quot;score&quot;:0,&quot;is_perfect_score&quot;:false}}" class="SubmissionListstyle__ListRow-sc-dysuo0-8 kWkWMs"><div class="SubmissionListstyle__ListItemColumnWrapper-sc-dysuo0-5 jbeaNc theme-dark"><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="SubmissionListstyle__ToggleIcon-sc-dysuo0-4 bYEfRJ"><path d="M20.735 11.1653C21.334 11.5606 21.334 12.4394 20.735 12.8347L7.80074 21.3691C7.13589 21.8078 6.25 21.3309 6.25 20.5344L6.25 3.4656C6.25 2.66905 7.13589 2.19223 7.80074 2.63092L20.735 11.1653Z" fill="black"></path></svg></div><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><span class="SubmissionListstyle__WhiteText-sc-dysuo0-3 kJJFrt theme-dark">2025-11-10 11:13:04</span></div><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><span class="SubmissionListstyle__WhiteText-sc-dysuo0-3 kJJFrt theme-dark">Java</span></div><div class="SubmissionListstyle__ListColumn-sc-dysuo0-7 jWepvt"><div class="SubmissionListstyle__ScoreInfo-sc-dysuo0-14 CLVpA theme-dark"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" class="SubmissionListstyle__InCorrectIcon-sc-dysuo0-13 jvkDCx"><g clip-path="url(#clip0_697_1060)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 0C3.129 0 0 3.129 0 7C0 10.871 3.129 14 7 14C10.871 14 14 10.871 14 7C14 3.129 10.871 0 7 0ZM10.5 9.231L9.231 10.5L7 8.269L4.769 10.5L3.5 9.231L5.731 7L3.5 4.769L4.769 3.5L7 5.731L9.231 3.5L10.5 4.769L8.269 7L10.5 9.231Z" fill="black"></path></g><defs><clippath id="clip0_697_1060"><rect width="14" height="14" fill="white"></rect></clippath></defs></svg><span class="SubmissionListstyle__ScoreText-sc-dysuo0-11 ghcIpf incorrect">오답</span></div><div class="SubmissionListstyle__ScoreNumber-sc-dysuo0-15 ivpXjX theme-dark">0 / 100</div></div></div></div></div><div class="PaginationNavstyle__Buttons-sc-isexrc-0 dQnsAP"><button class="PaginationNavstyle__ArrowEnd-sc-isexrc-2 kUZvyN start" aria-label="처음 페이지" disabled=""></button><button class="PaginationNavstyle__Arrow-sc-isexrc-3 jqCdaE prev" aria-label="이전 페이지" disabled=""></button><span class="PaginationNavstyle__PageButtonContainer-sc-isexrc-1 hlKQCf"><button data-testid="page-active" class="PaginationNavstyle__PageButton-sc-isexrc-4 erXNIv">1</button></span><button class="PaginationNavstyle__Arrow-sc-isexrc-3 jqCdaE next" aria-label="다음 페이지" disabled=""></button><button class="PaginationNavstyle__ArrowEnd-sc-isexrc-2 kUZvyN last" aria-label="마지막 페이지" disabled=""></button></div></div></div></div></div>
+  <script src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/270c2066bfaf4983bd42.js.다운로드" defer="defer"></script>
+</div>
+
+      </div>
+  </div>
+
+  <div class="gutter gutter-horizontal" style="width: 24px; background-image: url(&quot;/assets/img-grippie-vertical-cd0206a7a3122deb89a192c09ca241e8614c02e38b4f47ffb3af1a2e5246b85f.png&quot;);"></div><div class="run-section" style="width: calc(60% - 12px);">
+    <div id="tour3" class="code-section" onkeyup="Hera.tryoutChallenges.resizeEditor(this);" style="height: calc(60% - 7px);">
+      <div class="editor">
+        <ul class="nav nav-pills editor-nav-pills tap-form">
+    <input type="hidden" name="initial_code_49684" id="initial_code_49684" value="class Solution {
+    public int solution(int[] array) {
+        int answer = 0;
+        return answer;
+    }
+}" autocomplete="off">
+    <input id="49684" data-type="code" data-language="java" type="hidden" value="class Solution {
+    public int solution(int[] array) {
+        int answer = 0;
+        return answer;
+    }
+}">
+    <li class="nav-item">
+      <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120812#" class="btn-tab nav-link active" data-id="49684" data-language="java">
+        Solution.java </a>
+    </li>
+</ul>
+        
+          <textarea hidden="" id="code" name="code" style="display: none;">class Solution {
+    public int solution(int[] array) {
+        int answer = 0;
+        return answer;
+    }
+}</textarea><div class="CodeMirror cm-s-tomorrow-night-bright CodeMirror-wrap" translate="no"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 215.234px; left: 404.844px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; min-height: 1em; outline: none;"></textarea></div><div class="CodeMirror-vscrollbar" tabindex="-1" cm-not-content="true" style="display: block; bottom: 0px;"><div style="min-width: 1px; height: 1061px;"></div></div><div class="CodeMirror-hscrollbar" tabindex="-1" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 48px; margin-bottom: -8px; border-right-width: 42px; min-height: 1038px; padding-right: 8px; padding-bottom: 0px;"><div style="position: relative; top: 447.812px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style=""><div class="CodeMirror-cursor" style="left: 356.844px; top: 425.422px; height: 22.3906px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">21</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">if</span>(<span class="cm-variable">num</span>[<span class="cm-variable">m</span>] <span class="cm-operator">==</span> <span class="cm-variable">array</span>[<span class="cm-variable">k</span>]) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">22</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">//같으면 카운터 갯수 증가</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">23</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">numCount</span>[<span class="cm-variable">m</span>]<span class="cm-operator">++</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">24</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span>}<span class="cm-keyword">else</span> {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">25</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">//다르면 다음 num배열에 저장</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">26</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">m</span><span class="cm-operator">++</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">27</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span>}</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">28</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span>}</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">29</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-type">int</span> <span class="cm-variable">maxCount</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">30</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-type">int</span> <span class="cm-variable">arrNumber</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">31</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">32</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">//i저장 뭔가 이상함</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">33</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">for</span>(<span class="cm-type">int</span> <span class="cm-variable">i</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;<span class="cm-variable">i</span><span class="cm-operator">&lt;</span><span class="cm-variable">numCount</span>.<span class="cm-variable">length</span>;<span class="cm-variable">i</span><span class="cm-operator">++</span>) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">34</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">if</span>(<span class="cm-variable">maxCount</span><span class="cm-operator">&lt;</span><span class="cm-variable">numCount</span>[<span class="cm-variable">i</span>]) {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">35</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">//기본값 1추가</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">36</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">maxCount</span> <span class="cm-operator">=</span> <span class="cm-variable">numCount</span>[<span class="cm-variable">i</span>];</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">37</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">arrNumber</span> <span class="cm-operator">=</span> <span class="cm-variable">i</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">38</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">answer</span> <span class="cm-operator">=</span> <span class="cm-variable">num</span>[<span class="cm-variable">i</span>];</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">39</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span>}<span class="cm-keyword">else</span> <span class="cm-keyword">if</span>(<span class="cm-variable">maxCount</span><span class="cm-operator">==</span><span class="cm-variable">numCount</span>[<span class="cm-variable">i</span>]) {</span></pre></div><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -48px; width: 48px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">40</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span>(<span class="cm-operator">!</span>(<span class="cm-variable">maxCount</span> <span class="cm-operator">==</span> <span class="cm-number">1</span>))</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">41</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">answer</span> <span class="cm-operator">=</span> <span class="cm-operator">-</span><span class="cm-number">1</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">42</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span>}</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">43</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span>}</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">44</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">answer</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">45</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" aria-hidden="true" style="left: -48px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">46</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 42px; width: 1px; border-bottom: 0px solid transparent; top: 1038px;"></div><div class="CodeMirror-gutters" style="height: 1080px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 48px;"></div></div></div></div>
+      </div>
+    </div>
+
+    <div class="gutter gutter-vertical" style="height: 14px; background-image: url(&quot;/assets/img-grippie-horizon-2029be95ca34dfe8c756d091c6f53a6a007e3a66c7c68863ce6f54fe23d4f371.png&quot;);"></div><div class="output-section" id="tour6" style="height: calc(40% - 7px);">
+      <div class="tab-header">
+          <div id="output-title" class="output-title output-only active failed" data-toggle="tab">
+            <span class="connection-status connected" data-container="body" data-toggle="popover" data-placement="top" title="" data-html="true" data-content="
+                    &lt;h6&gt;네트워크가 불안정하여 서버와의 연결이 끊어졌습니다.
+                    페이지 새로고침을 하거나 네트워크가 안정적이 되면 자동으로 재 연결됩니다.&lt;/h6&gt;
+                    &lt;h6 style=&#39;margin-top: 4px;&#39;&gt;네트워크가 정상임에도 계속해서 연결이 끊어진 상태가 지속된다면 네트워크 방화벽 문제일 수 있습니다.
+                    모바일 테더링 등 다른 네트워크를 통해 테스트에 접속해 보세요.&lt;/h6&gt;" data-original-title="서버와의 연결 끊김">
+              <svg class="ic-24"><use xlink:href="/assets/svg-defs-66fb9296495544b5cfe85188769b6f054a402c2cade403f425642f9922ca755e.svg#ic-power-off"></use></svg>
+            </span>
+
+            실행 결과
+              <a id="stop-button" class="btn btn-sm btn-danger" href="https://school.programmers.co.kr/learn/courses/30/lessons/120812#" style="display: none;">실행 중지</a>
+            <span id="output-spinner" class="spinner hidden">
+              <span class="bounce1"></span>
+              <span class="bounce2"></span>
+              <span class="bounce3"></span>
+            </span>
+          </div>
+      </div>
+
+      <div class="console tab-content">
+          <div id="output" class="console-output tab-pane fade in active show banner">
+            <div id="output-wrapper"><pre class="console-content"><div></div><table class="console-testcase" data-index="0">
+  <tbody><tr><td colspan="2">테스트 1</td></tr>
+  <tr>
+  <td class="td-label" align="right">입력값 <span>〉</span></td>
+  <td class="input">[1, 2, 3, 3, 3, 4]</td>
+</tr>
+  <tr>
+  <td class="td-label" align="right">기댓값 <span>〉</span></td>
+  <td class="output">3</td>
+</tr>
+  <tr>
+    <td class="td-label" align="right" valign="top">실행 결과 <span>〉</span></td>
+    <td class="result passed">테스트를 통과하였습니다.</td>
+  </tr>
+  <tr style="display:none">
+    <td class="td-label" align="right" valign="top">출력 <span>〉</span></td>
+    <td class="stdout"></td>
+  </tr>
+</tbody></table><table class="console-testcase" data-index="1">
+  <tbody><tr><td colspan="2">테스트 2</td></tr>
+  <tr>
+  <td class="td-label" align="right">입력값 <span>〉</span></td>
+  <td class="input">[1, 1, 2, 2]</td>
+</tr>
+  <tr>
+  <td class="td-label" align="right">기댓값 <span>〉</span></td>
+  <td class="output">-1</td>
+</tr>
+  <tr>
+    <td class="td-label" align="right" valign="top">실행 결과 <span>〉</span></td>
+    <td class="result failed">실행한 결괏값 1이 기댓값 -1과 다릅니다.</td>
+  </tr>
+  <tr style="display:none">
+    <td class="td-label" align="right" valign="top">출력 <span>〉</span></td>
+    <td class="stdout"></td>
+  </tr>
+</tbody></table><table class="console-testcase" data-index="2">
+  <tbody><tr><td colspan="2">테스트 3</td></tr>
+  <tr>
+  <td class="td-label" align="right">입력값 <span>〉</span></td>
+  <td class="input">[1]</td>
+</tr>
+  <tr>
+  <td class="td-label" align="right">기댓값 <span>〉</span></td>
+  <td class="output">1</td>
+</tr>
+  <tr>
+    <td class="td-label" align="right" valign="top">실행 결과 <span>〉</span></td>
+    <td class="result failed">실행한 결괏값 -1이 기댓값 1과 다릅니다.</td>
+  </tr>
+  <tr style="display:none">
+    <td class="td-label" align="right" valign="top">출력 <span>〉</span></td>
+    <td class="stdout"></td>
+  </tr>
+</tbody></table><table class="console-testcase" data-index="3">
+  <tbody><tr><td colspan="2">테스트 4</td></tr>
+  <tr>
+  <td class="td-label" align="right">입력값 <span>〉</span></td>
+  <td class="input">[]</td>
+</tr>
+  <tr>
+  <td class="td-label" align="right">기댓값 <span>〉</span></td>
+  <td class="output">0</td>
+</tr>
+  <tr>
+    <td class="td-label" align="right" valign="top">실행 결과 <span>〉</span></td>
+    <td class="result passed">테스트를 통과하였습니다.</td>
+  </tr>
+  <tr style="display:none">
+    <td class="td-label" align="right" valign="top">출력 <span>〉</span></td>
+    <td class="stdout"></td>
+  </tr>
+</tbody></table><div class="console-heading">테스트 결과 (~˘▾˘)~</div><div class="console-failed">4개 중 2개 성공</div></pre></div>
+              
+
+
+
+  <div class="challengeable-banner-wrapper result-banner" style="position:relative;width:100%;margin-bottom: 21px;">
+    <a href="https://school.programmers.co.kr/learn/courses/25487" target="_blank" style="width:100%;display:flex;justify-content:center;" data-hackle-value="{&quot;key&quot;:&quot;school_challenge_coderun_banner_clicked&quot;,&quot;properties&quot;:{&quot;course_id&quot;:30,&quot;lesson_id&quot;:120812,&quot;banner_id&quot;:10460,&quot;challenge_title&quot;:&quot;최빈값 구하기&quot;,&quot;challenge_level&quot;:0,&quot;challenge_category&quot;:&quot;algorithm&quot;}}">
+      <img src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/DEV-AIBE-coding-test-02_1456x180_.jpg" alt="프로그래머스 K-Digital Training" style="width:100%; max-width:728px;">
+    </a>
+  </div>
+
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="button-section">
+  <div class="testcase-button">
+      <a id="btn-show-question" class="btn btn-dark" href="https://school.programmers.co.kr/learn/courses/30/lessons/120812/questions">질문하기 (152)</a>
+        <a class="btn btn-dark btn-block" data-remote="true" href="https://school.programmers.co.kr/challenge_algorithms/14652/custom_testcases?lesson_id=120812">
+          테스트 케이스 추가하기
+</a>  </div>
+
+  <div class="func-buttons">
+      <a id="view-solution-group" class="btn btn-dark btn-svg" data-remote="true" href="https://school.programmers.co.kr/learn/courses/30/lessons/120812/solution_groups?language=java">
+        <svg class="ic-24 ic-white"><use xlink:href="/assets/svg-defs-66fb9296495544b5cfe85188769b6f054a402c2cade403f425642f9922ca755e.svg#ic-lock-full"></use></svg> <span>다른 사람의 풀이</span>
+</a>
+      <a id="reset-code" class="btn btn-dark" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="에디터의 코드가 초기화됩니다. 초기화 버튼을 누르기 이전 코드 복원하려면 코드 에디터에 커서를 두고 Ctrl-Z를 눌러 보세요." href="https://school.programmers.co.kr/learn/courses/30/lessons/120812#" data-original-title="" title="">초기화</a>
+      <div id="tour4" data-hackle-value="{&quot;key&quot;:&quot;school_challenge_coderun_clicked&quot;,&quot;properties&quot;:{&quot;course_id&quot;:30,&quot;lesson_id&quot;:120812,&quot;challenge_title&quot;:&quot;최빈값 구하기&quot;,&quot;challenge_level&quot;:0,&quot;challenge_category&quot;:&quot;algorithm&quot;}}">
+        <button name="button" type="submit" id="run-code" class="btn btn-dark" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="작성한 코드를 제출하기 전에 먼저 실행해볼 수 있습니다. 예시 테스트 케이스를 사용하며, [테스트 케이스 추가하기]를 눌러 원하는 테스트 케이스를 추가할 수 있습니다." data-original-title="" title="">코드 실행</button>
+      </div>
+
+      <div id="tour5">
+        <button name="button" type="submit" id="submit-code" class="btn btn-primary" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="시험 종료 전까지 언제든 다시 제출할 수 있으며, 제출한 코드 중 가장 높은 점수를 낸 코드가 최종 답안이 됩니다." data-original-title="" title="">제출 후 채점하기</button>
+      </div>
+  </div>
+</div>
+
+</div>
+
+  </div>
+
+</div>
+
+
+
+<div class="modal fade" id="modal-dialog" tabindex="-1" style="display: none;" aria-hidden="true"><div class="modal-dialog" role="document"> <div class="modal-content"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button> <h4 class="modal-title">틀렸습니다!</h4> </div> <div class="modal-body"> 결과를 확인해 주세요. </div> <div class="modal-footer"> <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120812#" class="btn btn-primary" data-dismiss="modal">문제로 돌아가기</a> </div> </div> </div></div>
+
+  <script src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/library-851c98fc1abc631b88851aedc3d883e472624e8f8f6ee7ccf1c2287a571f1ea1.js.다운로드" debug="false"></script>
+<script type="text/javascript" id="" charset="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("set","autoConfig",!1,"2050250308523590");fbq("init","2050250308523590");fbq("track","PageView");</script>
+<noscript>
+  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2050250308523590&amp;ev=PageView&amp;noscript=1">
+</noscript>
+ 
+<iframe height="0" width="0" style="display: none; visibility: hidden;" src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/saved_resource.html"></iframe><script id="" text="" charset="" type="text/javascript" src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/wcslog.js.다운로드"></script> 
+<script type="text/javascript" id="" charset="">if(!wcs_add)var wcs_add={};wcs_add.wa="s_27437e07533e";if(!_nasa)var _nasa={};window.wcs&&(wcs.inflow(),wcs_do(_nasa));</script>
+<div class="tui-tooltip" style="display: none;"><div class="arrow"></div><span class="text"></span></div><div class="tui-tooltip" style="display: none;"><div class="arrow"></div><span class="text"></span></div>
+  <script>
+//<![CDATA[
+    I18n.defaultLocale = "ko";
+    I18n.locale = "ko";
+    I18n.fallbacks = true;
+
+//]]>
+</script>  <script src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/application-4103d374f97b1a7d6a50dae1b1e943dc1b08eb13e99650c52a1e76f640f773fc.js.다운로드"></script>
+
+<script>
+//<![CDATA[
+window.addEventListener('load', function() {});
+//]]>
+</script>
+  <script src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/all.js.다운로드" type="text/javascript">
+    cloudinary.setCloudName('eightcruz');
+  </script>
+
+  <script src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/loader.js.다운로드" type="text/javascript"></script>
+  <script src="./코딩테스트 연습 - 최빈값 구하기 _ 프로그래머스 스쿨_files/bundle.min.js.다운로드" integrity="sha384-QLRjp0fR75x7D0LjPI+SXePWP9XQ0m2EmTJkX3pjLU45zt9uU2FgmiiqnMGl9w/N" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    Sentry.init({
+      environment: "production",
+      dsn: "https://96f9fc1ff3f44acbb98a9c156338d14b@o1070092.ingest.sentry.io/6136918",
+      initialScope: {
+        code_version: "ce4663c181bc0024f91b4225e1ca96bc7274d255",
+        user: {
+          id: 885503,
+          username: "k******************m",
+          email: "kd********@gmail.com"
+        },
+      },
+      // Set tracesSampleRate to 1.0 to capture 100%
+      // of transactions for performance monitoring.
+      // We recommend adjusting this value in production
+      beforeSend: function beforeSend(event) {
+        const firstException = (event.exception && event.exception.values || [])[0];
+
+        if (firstException) {
+          const mechanism = firstException.mechanism;
+          const stacktrace = firstException.stacktrace;
+          const value = firstException.value;
+
+          const isOnError = () => mechanism && mechanism.type === 'onerror';
+          const hasAnonymousFilename = () => Boolean(
+            stacktrace && stacktrace.frames && stacktrace.frames.some(
+              ({ filename }) => filename && filename.includes('anonymous'),
+            ),
+          );
+
+          const isIgnorableAgoraError = value?.includes('can not generate join message, no join info') || value?.includes('WS_ABORT');
+
+          /* console의 예외는 sentry에 보내지 않는다. #4226 */
+          if (isOnError() && hasAnonymousFilename())
+            return null;
+
+          if (isIgnorableAgoraError)
+            return null;
+        }
+
+        return event;
+      },
+    });
+  </script>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NT8HLJD"
+          height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<script type="text/javascript" charset="utf-8">
+  window.addEventListener('afterprint', function() {
+      $.ajax({
+          type: 'POST',
+          url: '/api/action_trackings/print_screen',
+          data: {
+              current_path: window.location.href
+          }
+      })
+  })
+</script>
+
+
+
+
+<noscript>
+  이 사이트의 기능을 모두 활용하기 위해서는 자바스크립트를 활성화할 필요가 있습니다.
+  <a href="http://www.enable-javascript.com/ko/" target="_blank">
+    브라우저에서 자바스크립트를 활성화하는 방법</a>을 참고하세요.
+</noscript>
+
+
+
+<div id="snackbar-container"></div></body></html>

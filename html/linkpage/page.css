@@ -1,0 +1,27 @@
+        .nav-menu{
+            width: 100px;
+            height: 50px;
+            border: 1px solid black;
+            display: flex;
+        }
+
+        .navbaer ul{
+            list-style: none;
+            display: flex;
+            background-color: lightblue;
+        }
+
+        .navbaer li{
+            width: 150px;
+            height: 50px;
+            border: 1px solid red;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbaer a {
+            text-decoration: none;
+            color: brown;
+        }

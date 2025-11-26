@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: darkslategray;
+            margin: 0 auto;
+            width: 500px;
+            height: 460px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .Welcome {
+            background-color: seagreen;
+            width: 300px;
+            height: 50px;
+            border-radius: 12px;
+            font-size: 18px;
+            
+            animation-name: ani;
+            animation-duration: 3s;
+        }
+
+        @keyframes ani {
+            0%{
+                opacity: 0%;
+            }
+            100%{
+                opacity: 100%;
+            }
+        }
+
+    </style>
+    <link rel="stylesheet" href="./basic.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="Welcome text-center">Welcome to Webpage!</div>
+    </div>
+</body>
+
+</html>
